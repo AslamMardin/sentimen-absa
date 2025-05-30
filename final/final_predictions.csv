@@ -1,0 +1,163 @@
+actual,predicted,text,correct
+Positif,Positif,masya allah suasana upacara agustus,True
+Positif,Positif,sukses selalu anak syg lomba gerak jalan tingkat kabupaten,True
+Negatif,Negatif,moga seluruh santri beri mudah uji sebentar akan laksana uji peralahan thobaqoh tahap ii tanggal november,True
+Positif,Positif,aqila zahra tanding pencak silat antar putri live,True
+Negatif,Negatif,keren buka daftar santriwati baru pondok pesantren salafiyah parappe,True
+Positif,Positif,merdeka suasana upacara agustus,True
+Positif,Positif,alhamdulillah detik detik smps al ikhlash juara ajang lomba gerak jalan tingkat smp mts,True
+Negatif,Positif,sehat slalu annangguru murobbi gurunda tuan guru ust abdul shomad murobbi kiyai amin said al mahdal,False
+Positif,Positif,masyaallah alhamdulillah ananda muh dzaki as syafiq laksana tasmi al qur an pukul wita sore pondok pesantren modern al ikhlash,True
+Netral,Negatif,moga lancar ujianx naksalam aamin liput vidio uji lisan putra,False
+Positif,Positif,aqila zahra sdah tanding tanding pencak silat antar putri live,True
+Negatif,Negatif,masyaallah mtq nasional kategori tilawah anak anak syahruddin,True
+Negatif,Negatif,rindu adikq dstu pondok pesantren salafiyah parappe putri ada giat sosialisasi tema cegah tangan keras satu didik,True
+Negatif,Positif,iya nak semngat terus kalah menang tdk masalah penting alam nya tanding pencak silat antar putri live,False
+Negatif,Positif,amin yarabbal alamin laksana uji alih thobaqoh tahap ii,False
+Positif,Positif,aamiin berkah jaya selalu pondok pesantren syekh hasan yamani,True
+Positif,Positif,smg allah swt mudah sgalanya hngga dpt hsl trbaik harum nm pondok pesantren syekh hasan yamani madrasah fest jakarta wakil sulawesi barat,True
+Negatif,Negatif, beda santri baru santri lama cara cuci baju,True
+Positif,Negatif,sukses selalu pondok cinta shyekh hasan yamani lembar sejarah kami ukir lalu rajut sama tegak nilai juang,False
+Positif,Positif,ibu nonton nak tanding pencak silat antar putri live,True
+Positif,Positif,spil tempat dewan guru nya min suasana upacara agustus,True
+Positif,Positif,hafida live tasmi putri,True
+Negatif,Negatif, galeri buka porseni antar santriwati pondok pesantren salafiyah parappe putri tema kompak kompetisi ukir prestasi bangun karakter islami,True
+Negatif,Negatif,mau tanya kalau laki laki hari apa pulang libur tiba,True
+Positif,Positif,aamiin semogah jalan lancar laksana uji thobaqah madrasah ihya ulumuddin tahap iii uji tulis selenggara tanggal februari,True
+Positif,Positif,sehat sll ustzh selamat hari guru guru hebat indonesia kuat,True
+Negatif,Negatif,moga uji thobaqohnya mudah semua allah sebentar akan laksana uji peralahan thobaqoh tahap ii tanggal november,True
+Positif,Negatif,masyaallah terimakasih ustadz sehat selalu sama santri santriwati nya selamat hari ibu,False
+Positif,Positif,allah moga semua santri n santriwati lolos tobaqo lanjut nya naik utama putri aamiin allah laksana uji alih thobaqoh tahap ii,True
+Netral,Positif,masyaallahh nak fahmi ceramah safari ramadhani fahmi,False
+Negatif,Negatif,sy orang tua siswa pondok pesantren al ikhlas lampoko ikut terus giat santri santri ucap sehat sehat sllu putra putri ank sholeh sholehah pesan santri keluarga ada rumah,True
+Positif,Positif,salsabila mariaya al tsar tanding tanding pencak silat antar putri live,True
+Netral,Positif,moga uji lancar mudah laksana uji thobaqah madrasah ihya ulumuddin tahap iii uji tulis selenggara tanggal februari,False
+Positif,Positif,maasya allah murobbi gurunda tuan guru ust abdul shomad murobbi kiyai amin said al mahdal,True
+Negatif,Negatif,fauzan fauzan amien aktivitas santri phy dzikir pagi al ma tsurat,True
+Negatif,Negatif,assalamualaikum bu ustazah mau tanya tgl berapa pulang santriwati informasi izin santri tutup,True
+Positif,Positif,alhmdulillah selamat buat nanda smua xd moga ilmux tambah xd smga ank santri lain bs motivasi selamat sukses para santri telah selesai target hafal program tahfizhul qur an,True
+Negatif,Positif,alhamdulillah semangat mu sia nak alhamdulilah smps al ikhlash lampoko juara ajang lomba gerak jalan,False
+Negatif,Positif,moga uji anak mudah dapat hasil baik laksana uji thobaqah madrasah ihya ulumuddin tahap iii uji tulis selenggara tanggal februari,False
+Positif,Positif,barakallah fil umrik pak ustadz xd fachry tajuddin panjang umur slalu jadi panutan para santri selamat ulang tahun ustadz fahri tajuddin,True
+Negatif,Negatif,masya allah slmt baut sharul sukses sllu nak ganteng mtq nasional kategori tilawah anak anak syahruddin,True
+Positif,Positif,masya allah sukses selalu anak sholehah lomba gerak jalan tingkat kabupaten,True
+Negatif,Negatif,luar biasa anak santri terima santri baru pondok pesantren salafiyah parappe,True
+Negatif,Negatif,masyaallah semangat ujianx anak hafalanx bejalan lancar amiin uji tuju latih mampu bahasa arab inggris,True
+Positif,Positif,mohon maaf lahir batin selamat hari raya idul fitri h,True
+Negatif,Negatif,bismillah moga anak anak mudah di lancar ajar muda mudah anak anak lulus semua sebentar akan laksana uji peralahan thobaqoh tahap ii tanggal november,True
+Positif,Positif,aamiin rabbal alamiiin madrasah fest jakarta wakil sulawesi barat,True
+Negatif,Negatif,masya allah moga anak anak juga seperti musyawarah kitab fathul qarib antar santriwati thobaqah fathul qorib fathul mu in pdf ulya pdf wustho,True
+Positif,Positif,okk tanding pencak silat antar putri live,True
+Negatif,Negatif,sehat semua ustadz ustadzah ponpes syekh hasan yamani silaturrahmi bagi raport semester ganjil tahun ajar pondok pesantren syekh hasan yamani,True
+Negatif,Negatif,semngat buat santri santriwati ponpes pondok pesantren syekh hasan yamani smoga kalian smua jadi laskar depan bela agama islam amin highlight one night with santri pondok pesantren syekh hasan yamani,True
+Positif,Positif,masyaallah juara qori al quran tingkat nasional,True
+Positif,Positif,semangat nanda moga hafal jadi berkah tuk nanda sendiri ponfok se cara seluruh allah suci hati semua live tasmi putri,True
+Positif,Positif,siapa menang ustadz tanding pencak silat antar putri live,True
+Negatif,Negatif,maaf jadi mulai hari ahad bisami besuk anak anak maklumat umum resmi,True
+Positif,Positif,barakallah ust fahri moga sehat selalu panjang umur selamat ulang tahun ustadz fahri tajuddin,True
+Negatif,Negatif,insyaallah tahun anak daftar buka daftar santriwati baru pondok pesantren salafiyah parappe,True
+Netral,Positif,masya allah tabarakallah sukses selalu kalian dua moga anak ikut jejak aamiin allahumma aamiin santri ppm al ikhlash tuju universitas al azhar mesir,False
+Negatif,Negatif,keren recap vidio maulid pondok pesantren syekh hasan yamani,True
+Positif,Positif,selamat nak muslim pilih jadi ketua ospi tahun xd rangkul semua teman temanta saudarata nak biar bangga jadi bagi alumni pondok pesantren modern al ikhlash alhamdulillah selamat muslim santri kelas xi merdeka ketua ospi putra periode,True
+Netral,Positif,kalau nur khalish sdh ikut tanding nak kelas x tanding pencak silat antar putri live,False
+Negatif,Negatif,senantiasa beri nikmat sehat berkah buat didik pondok phy santri kelas a kmi muadalah putra,True
+Negatif,Negatif,mondok mi naura sehat ki anak cantik pesan santri keluarga ada rumah,True
+Negatif,Positif,enak yaa lama libur libur ramadhan makin dekat,False
+Positif,Positif,up tanding pencak silat antar putri live,True
+Negatif,Negatif,innalillahi wainna ilaihi rajiun moga ananda salihah puspawati rahimahallah ampun rahmat tinggal anak santriwati alumni salihah puspawati,True
+Positif,Positif,aamiin selamat hari raya idul fitri h,True
+Positif,Positif,alhamdulillah selamat sukses doa baik untukta ustadz selamat sukses pimpin pondok pesantren modern al ikhlash lampoko ust ihsan zainuddin lc dipl telah pilih serta daurah didik intensif universitas ummul quro mek,True
+Positif,Positif,selamat para pendekar serah piagam harga rewards,True
+Positif,Positif,moga libur ramadhan nya penuh dg ibadah bawa berkah buat anakda ustz dn ortu libur ramadhan makin dekat,True
+Negatif,Negatif,innalillahi wainnailaihi roji un smoga husnul khatimah tinggal anak santriwati alumni salihah puspawati,True
+Positif,Negatif,luaar biasa prestasi prestise mu sukses lalu dlm lindung aamiin santri ppm al ikhlash tuju universitas al azhar mesir,False
+Negatif,Negatif,fira ku pesan santri keluarga ada rumah,True
+Positif,Positif,kakak tanding pencak silat antar putri live,True
+Negatif,Negatif,anak azkiyah kamila laksana uji thobaqah madrasah ihya ulumuddin tahap iii uji tulis selenggara tanggal februari,True
+Negatif,Negatif,masya allah sukses sllu anak sholeh sholeha momen beri hadiah santri ppm al ikhlash lampoko juara festival anak sholeh sholehah tingkat smp mts se polewali mandar uptd sman wonomulyo,True
+Positif,Positif,aamiin allahhumma aamiin mulia hari hari mulia moga allah mulia kita dengan baik dunia akhirat,True
+Positif,Positif,ustadz waspada situ dik tanding pencak silat antar putri live,True
+Negatif,Negatif,insyaallah azwar siap siap siap balik pondok aja nih tas kemas cemilan aman tinggal bawa semangat aja,True
+Positif,Positif,selamat hari guru nasional selamat hari guru guru hebat indonesia kuat,True
+Negatif,Negatif,pernah timba ilmu sini sudah lupa ntah tahun berpa xd xd di jaman sekarang ada tenaga didik gontor di kirim kesini ubur ubur ikan lele ayo hasan yamani leee,True
+Negatif,Negatif,pimpin pondok keren pimpin al ikhlash terima kunjung urus kks rukun keluarga sulawesi kairo,True
+Negatif,Negatif,masyaallah sukses semua anak telah toreh ptestasi inshaallah kelak akan jadi bekal jawab tantang lbh sulit masa datang ucap terimakasih setinggi para ustad n ustadzah telah bimbing n ajar ilmu tdk nilai anak hingga antar anak pondok pesantren al ikhlas lampoko raih prestasi khusus ananda alfarizqi prestasi tdk henti smp sini nak terus asah mampu n bakat sukses buat semua anakq selamat sukses santri santri wati telah raih juara festival anak sholeh sholehah antar smp mts se polewali mandar uptd sman wonomulyo,True
+Positif,Positif,selamat baik tahun alhamdulilah smps al ikhlash lampoko juara ajang lomba gerak jalan,True
+Positif,Positif,alhamdulillah sambut hari merdeka santri pondok pesantren syekh hasan yamani ikut lomba gerak jalan kec campalagian,True
+Negatif,Negatif,aamiin xd buatin kelas a mts dong pesan santri keluarga ada rumah,True
+Positif,Positif,aaaaamin uji alih thobaqoh tahap ii madrasah ihya ulumiddin uji tulis,True
+Positif,Negatif,syukur alhamdulillah semangat terus ainun aulia zulkifli dapat gelar best intelegensia duta ajar sulawesi barat tahun,False
+Positif,Positif,ami n selamat sukses pimpin pondok pesantren modern al ikhlash lampoko ust ihsan zainuddin lc dipl telah pilih serta daurah didik intensif universitas ummul quro mek,True
+Positif,Positif,bangga dg ppm al ikhlash lampoko suasana upacara agustus,True
+Positif,Negatif,alhamdulillah moga anak anak ku lulus tobaqah lanjut lebih tingkat yang blum lulus lebih giat lgi ajar moga uji tahap ikut lulus galeri umum hasil uji thobaqoh tahap ii madrasah ihya ulumiddin putri,False
+Positif,Positif,masyaallah alhamdulillah selamat dua santri hebat m akhsay saputra ainun aulia zulkifly telah hasil lang hingga tahap final pilih duta ajar sulawesi barat,True
+Negatif,Negatif,izin share recap vidio maulid pondok pesantren syekh hasan yamani,True
+Netral,Negatif,balik kampung libur tiba,False
+Positif,Positif,maasya allah potret suasana santri buka puasa nisfu sya ban h,True
+Negatif,Negatif,pentas dong ustadz view atas udara acara giat apresiasi seni santri panggung gembira,True
+Netral,Positif,pulang bunda ajak makan burger nah tanding pencak silat antar putri live,False
+Negatif,Negatif,masyaallah sukses sehat selalu ki anak semangat selamat dua santri hebat m akhsay saputra ainun aulia zulkifly telah hasil lang hingga tahap final pilih duta ajar sulawesi barat,True
+Positif,Positif,alhamdulillah galeri umum hasil uji thobaqoh tahap ii madrasah ihya ulumiddin putri,True
+Positif,Positif,alhamdulillah sukses sll smps al ikhlas lampoko alhamdulilah smps al ikhlash lampoko juara ajang lomba gerak jalan,True
+Negatif,Negatif,masyaaallah ust wajdi sana apa beliau pulkam parappe silaturahmi iftar sama keluarga besar pondok pesantren syekh hasan yamani,True
+Positif,Positif,alhamdulillah alhamdulilah smps al ikhlash lampoko juara ajang lomba gerak jalan,True
+Negatif,Negatif,aamiin yra salam rinduh pk ustaz smg semua p umur n anak semua sehat n kmbali kpondok dngn selamat tmks bxk pk ustadz salam rindu pimpin pondok pesantren modern al ikhlash seluruh santri ppm al ikhlash lampoko,True
+Negatif,Negatif,innalillahi wainnailahi rajiun tinggal anak santriwati alumni salihah puspawati,True
+Positif,Positif,amiiiin mulia hari hari mulia moga allah mulia kita dengan baik dunia akhirat,True
+Positif,Positif,masyaallah moga mudah nak alhamdulillah ananda muh dzaki as syafiq laksana tasmi al qur an pukul wita sore pondok pesantren modern al ikhlash,True
+Positif,Positif,selamat hari santri buat semua anak moga selalu jaya lindung allah subhanahu wataalah selamat hari santri nasional,True
+Negatif,Negatif,klo beginimi ustadzah hadirin hadirat sangat banyak rame sekali ada panggung gembira nya wow sungguh riah luar biasa ustadzah denah parkir maulid nabi muhammad saw pp s hasan yamani,True
+Negatif,Negatif,aamiin rabb kelas a kmi muadalah putra,True
+Netral,Negatif,izwan fattah fildza konten santri,False
+Positif,Positif,alhamdulillah alhamdulilah smps al ikhlash lampoko juara ajang lomba gerak jalan,True
+Positif,Negatif,taqobballahu minna wa mingkum taqobbal karim mhn maaf lahir bathin ustaz selamat hari raya idul fitri h,False
+Negatif,Negatif, liput vidio santri baru ziarah makam oebdiri pondok pesantren syekh hasan yamani,True
+Positif,Positif,alhamdulillah alhamdulilah smps al ikhlash lampoko juara ajang lomba gerak jalan,True
+Positif,Positif,alhamdulillah mantap alhamdulilah smps al ikhlash lampoko juara ajang lomba gerak jalan,True
+Negatif,Negatif,ingat jaman dulu waktu mas d polmas musyawarah kitab fathul qarib antar santriwati thobaqah fathul qorib fathul mu in pdf ulya pdf wustho,True
+Positif,Positif,alhamdulillah selamat nak dzaka brjuang terus dzaka alkarim dhiaulhaq santri ppm al ikhlash lampoko siswa kelas viii b smp telah raih medali emas ajang bal taekwondo,True
+Positif,Positif,hebat selamat ulang tahun negara cinta indonesia moga tetap jadi negara aman damai limpah barokah,True
+Negatif,Positif,barakallahu fiik selamat dua santri hebat m akhsay saputra ainun aulia zulkifly telah hasil lang hingga tahap final pilih duta ajar sulawesi barat,False
+Positif,Positif,masya allah bangga jadi alumni al ikhlas yel yel ppm al ikhlash,True
+Positif,Positif,dulu hingga kini sllu champion alhamdulilah smps al ikhlash lampoko juara ajang lomba gerak jalan,True
+Negatif,Negatif,kelas apam liput vidio uji lisan putra,True
+Negatif,Negatif,alhamdulillah sehatki semua nak antara adam putri galeri buka ta aruf santriwati baru pondok pesantren salafiyah parappe putri,True
+Positif,Positif,aamiin selamat ulang tahun negara cinta indonesia moga tetap jadi negara aman damai limpah barokah,True
+Positif,Positif,kakak msih tanding besok arti tanding pencak silat antar putri live,True
+Positif,Positif,selamat sukses selamat sukses pimpin pondok pesantren modern al ikhlash lampoko ust ihsan zainuddin lc dipl telah pilih serta daurah didik intensif universitas ummul quro mek,True
+Positif,Positif,amiin galeri umum hasil uji thobaqoh tahap ii madrasah ihya ulumiddin putri,True
+Positif,Positif,selamat sukses pak ustadz jadi siapa akan pimpin pondok sekarang selamat sukses pimpin pondok pesantren modern al ikhlash lampoko ust ihsan zainuddin lc dipl telah pilih serta daurah didik intensif universitas ummul quro mek,True
+Negatif,Negatif,masyaallah tabarakallah sehat selalu anak sholeh datang santri pondok hasan yamani,True
+Positif,Positif,masya allah xd smoga putri q naik k kitab slnjut ny aamiiin xd xd trims tak t hingga ustadzah snntiasa m bimbing anak galeri umum hasil uji thobaqoh tahap ii madrasah ihya ulumiddin putri,True
+Negatif,Negatif,sehat sehat selalu nak pondok laksana uji thobaqah madrasah ihya ulumuddin tahap iii uji tulis selenggara tanggal februari,True
+Negatif,Negatif,iye hubung akan laksana uji mid semester santri santriwati izin kunjung tiada lama masa uji sebut,True
+Positif,Positif,masya allah keren congrats buat ananda dua bina selamat dua santri hebat m akhsay saputra ainun aulia zulkifly telah hasil lang hingga tahap final pilih duta ajar sulawesi barat,True
+Positif,Positif,alhamdulillah juara qori al quran tingkat nasional,True
+Negatif,Negatif,masya allah galeri buka porseni antar santriwati pondok pesantren salafiyah parappe putri tema kompak kompetisi ukir prestasi bangun karakter islami,True
+Negatif,Negatif,smoga lancar mudah ujianx xd aamiin xd ananda nisrina meylani salsabila amran muroja ah al a mmah tolak ukur paham kuasa ajar,True
+Positif,Positif,barakallahu fiik live tasmi putri,True
+Negatif,Negatif,alhamdulillohirobbil aalamiiin sudah cikup insya alloh nnti tahun berikutnx yang juaranx mtq nasional kategori tilawah anak anak syahruddin,True
+Negatif,Negatif,innalillahi wa innailaihi raji un xd allahummag firlaha warhamha wa afiha wa fu anha tinggal anak santriwati alumni salihah puspawati,True
+Positif,Negatif,semuga pondok serta keluarga besar pondok selalu lindung allah selalu senantiasa dapat syafaat dr rosulullah nabi muhammad s a w galeri umum hasil uji thobaqoh tahap ii madrasah ihya ulumiddin putri,False
+Netral,Positif,masya allah giat anak detik detik smps al ikhlash juara ajang lomba gerak jalan tingkat smp mts,False
+Positif,Positif,alhamdulillah selamat tugas nak alhamdulillah selamat lubnah maysuri asrafat ketua ospi putri periode,True
+Positif,Positif,jam brp besok tanding pencak silat antar putri live,True
+Negatif,Negatif,selamat sukses uji hubung akan laksana uji mid semester santri santriwati izin kunjung tiada lama masa uji sebut,True
+Positif,Negatif,seluruh serta golong ank ank liat live rri samarinda qori syahruddin paling ngetop xd full fowerr persis cara qori syamsuri pirdaus pas mas kecil semogah qori syahruddin sehat selalu tahun depan paling baik seluruh baik amiin juara qori al quran tingkat nasional,False
+Positif,Positif,masya allah ubur ubur ikan lele ayo hasan yamani leee,True
+Netral,Positif, konten santri,False
+Negatif,Negatif,masyaallah tabarakallah potret suasana santri buka puasa nisfu sya ban h,True
+Negatif,Negatif,subhanallah sukses dn sehat slalu anak anak soleh sambut hari merdeka santri pondok pesantren syekh hasan yamani ikut lomba gerak jalan kec campalagian,True
+Negatif,Negatif,masyaallah denah parkir maulid nabi muhammad saw pp s hasan yamani,True
+Netral,Negatif,masyaallah peluang beasiswa tunisia santri al ikhlash lampoko sulawesi barat,False
+Negatif,Negatif,semangat teman teman liput vidio santri baru ziarah makam oebdiri pondok pesantren syekh hasan yamani,True
+Negatif,Negatif,smangat nak sholeh smoga uji hapalanx brjalan lancar amiiiiiiin uji tuju latih mampu bahasa arab inggris,True
+Positif,Positif,kakak tanding pencak silat antar putri live,True
+Negatif,Negatif,muslimah qasim amien aktivitas santri phy dzikir pagi al ma tsurat,True
+Negatif,Negatif,semangat nak accank latih laskar scout,True
+Negatif,Negatif,alhamdulillah allah perna jadi bagi huni hasan yamani alumni pertama santriwati walaupun jadi santriwati pertama santriwati tetap semangat terima kasih ustadz ustadzah atas ilmu abdi miss you hasan yamani view atas udara acara giat apresiasi seni santri panggung gembira,True
+Positif,Positif,rifqa nonton tanding pencak silat antar putri live,True
+Negatif,Negatif,sehat sll semua galeri buka ta aruf santriwati baru pondok pesantren salafiyah parappe putri,True
+Negatif,Negatif,luar biasa sukses terus adik yel yel ppm al ikhlash,True
+Positif,Positif,maasyaallah uji alih thobaqoh tahap ii madrasah ihya ulumiddin uji tulis,True
+Positif,Positif,selamat sukses dzaka al karim dhiaulhaq hasil rebut medali emas kelas u putra turnamen taekwondo kemenpora cup palu,True
