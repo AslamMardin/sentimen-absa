@@ -1,0 +1,65 @@
+Saya sedang mengerjakan proyek analisis data berbasis NLP (Natural Language Processing) untuk melakukan *Aspect-Based Sentiment Analysis* terhadap ulasan pondok pesantren. Saya membutuhkan skrip Python yang lengkap, terstruktur, dan diberi komentar jelas, untuk menyelesaikan analisis ini dari awal hingga akhir. Berikut adalah detail proyek:
+
+📁 Dataset utama: `hasil_sentimen_pesantren.csv`  
+Kolom yang terdapat di dalamnya:
+- no: Nomor urut data
+- ponpes: Nama pondok pesantren
+- text_combined: Kalimat ulasan gabungan yang perlu diperbaiki strukturnya
+- sentimen_lexicon: Label sentimen manual (positif, negatif, netral)
+- aspek_manual: Label aspek manual (salah satu dari 10 kategori aspek)
+
+📁 File tambahan:
+- `positive.csv` : Daftar kata positif (1 kata per baris)
+- `negative.csv` : Daftar kata negatif (1 kata per baris)
+
+🎯 Tujuan analisis:
+1. **Text Refinement**:
+   - Gunakan model `bigscience/bloom-560m` dari Hugging Face untuk memperbaiki struktur dan kualitas kalimat di kolom `text_combined`.
+   - Simpan hasilnya ke kolom baru `text_refined`.
+
+2. **Aspect Classification dengan Topic Modeling (LDA)**:
+   - Lakukan preprocessing: lowercasing, tokenisasi, penghapusan tanda baca, stopword (Bahasa Indonesia).
+   - Gunakan LDA (`gensim.models.LdaMulticore`) untuk mengelompokkan teks ke dalam 10 kategori aspek:
+     0: Kualitas Guru
+     1: Fasilitas
+     2: Lingkungan
+     3: Kegiatan Pondok
+     4: Pembinaan Karakter
+     5: Prestasi
+     6: Akademik
+     7: Motivasi/Spiritual
+     8: Sosial
+     9: Umum
+   - Simpan ke kolom `predicted_aspect`.
+
+3. **Sentiment Analysis dengan Lexicon-Based**:
+   - Gunakan daftar kata dari `positive.csv` dan `negative.csv` untuk menghitung sentimen dari `text_refined`.
+   - Klasifikasikan menjadi: positif, negatif, atau netral.
+   - Simpan ke kolom `predicted_sentiment`.
+
+4. **Evaluasi Akurasi**:
+   - Bandingkan:
+     - `predicted_aspect` dengan `aspek_manual`
+     - `predicted_sentiment` dengan `sentimen_lexicon`
+   - Hitung akurasi dan tampilkan confusion matrix.
+
+5. **Visualisasi Hasil**:
+   - Tampilkan distribusi aspek dan sentimen per `ponpes`.
+   - Buat heatmap korelasi antara `predicted_aspect` dan `predicted_sentiment`.
+
+6. **Simpan Hasil Akhir**:
+   - Gabungkan seluruh hasil ke satu DataFrame dan simpan sebagai `hasil_analisis.csv`.
+
+📦 Library Python yang digunakan:
+- `pandas`, `numpy`, `string`, `matplotlib.pyplot`, `seaborn`
+- `gensim`, `sklearn.metrics`
+- `nltk` untuk preprocessing Bahasa Indonesia
+- `transformers` untuk model BLOOM (`bigscience/bloom-560m`)
+
+📌 Permintaan khusus:
+- Sertakan komentar yang menjelaskan fungsi setiap bagian kode.
+- Buat strukturnya rapi per tahap (impor, loading data, preprocessing, LDA, sentimen, evaluasi, visualisasi).
+- Kode dapat dijalankan di Google Colab (termasuk instalasi dependensi jika perlu).
+- Jika ada tips optimasi atau peringatan terkait runtime, mohon disertakan.
+
+Mohon buatkan skrip Python lengkap untuk semua langkah di atas.
