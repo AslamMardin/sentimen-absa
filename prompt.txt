@@ -1,3 +1,7 @@
+generate 
+perbaiki kalimat dan bisa juga generate kalimatku, dan tentukan sentimen dan Aspek-aspek yang dianalisis meliputi: Kualitas Guru, Fasilitas, Lingkungan, Kegiatan Pondok, Pembinaan Karakter, Prestasi, Akademik, Motivasi/Spiritual, Sosial, dan Umum. tunggu kalimat yang saya masuk ya. berikan bentuk table dan tampilkan seluruh data yang sudah diproses
+
+
 Saya sedang mengerjakan proyek analisis data berbasis NLP (Natural Language Processing) untuk melakukan *Aspect-Based Sentiment Analysis* terhadap ulasan pondok pesantren. Saya membutuhkan skrip Python yang lengkap, terstruktur, dan diberi komentar jelas, untuk menyelesaikan analisis ini dari awal hingga akhir. Berikut adalah detail proyek:
 
 📁 Dataset utama: `hasil_sentimen_pesantren.csv`  
