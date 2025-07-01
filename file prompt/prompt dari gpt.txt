@@ -1,0 +1,82 @@
+Saya sedang melakukan penelitian Aspect-Based Sentiment Analysis (ABSA) terhadap kinerja pondok pesantren. Mohon bantu buatkan kode Python lengkap untuk pipeline berikut ini:
+
+DATASET  
+
+File input adalah file Excel (.xlsx) dengan kolom:
+
+- "kalimat" → teks ulasan
+
+- "ponpes" → nama pondok pesantren
+
+ASPEK
+
+Saya ingin menentukan aspek dari setiap kalimat menggunakan LDA (Latent Dirichlet Allocation), lalu saya akan mapping manual hasil LDA tersebut ke 10 aspek tetap berikut:
+
+- Kualitas Guru
+
+- Fasilitas
+
+- Lingkungan
+
+- Kegiatan Pondok
+
+- Pembinaan Karakter
+
+- Prestasi
+
+- Akademik
+
+- Motivasi/Spiritual
+
+- Sosial
+
+- Umum
+
+SENTIMEN
+
+Setelah aspek ditemukan, mohon gunakan pendekatan lexicon-based untuk menentukan sentimen tiap aspek:
+
+- Gunakan daftar kata positif dan negatif dari file positive.csv dan negative.csv
+
+- Tokenisasi tiap kalimat dan hitung jumlah kata positif dan negatif
+
+- Tentukan apakah kalimat (terhadap aspek tersebut) bersentimen positif, negatif, atau netral
+
+PEMBENTUKAN DATASET
+
+Setelah itu, bentuk dataset baru dengan format:
+
+- kalimat
+
+- aspek
+
+- label_sentimen
+
+PELATIHAN MODEL RNN (LSTM)
+
+- Split data menjadi 80% training dan 20% testing
+
+- Tokenisasi dan padding kalimat menggunakan Keras
+
+- Gunakan model LSTM (RNN) untuk klasifikasi sentimen dari kalimat dan aspek
+
+- Gunakan class_weight jika datanya tidak seimbang
+
+EVALUASI
+
+- Tampilkan confusion matrix
+
+- Tampilkan classification report (precision, recall, f1-score)
+
+- Hitung dan tampilkan akurasi dan f1-score rata-rata
+
+VISUALISASI PER ASPEK DAN PONDOK PESANTREN
+
+- Tampilkan distribusi sentimen untuk masing-masing aspek di tiap pondok pesantren
+
+- Bisa pakai seaborn/matplotlib (grafik batang atau pie chart)
+
+CATATAN TEKNIS
+
+- Gunakan library umum: Pandas, NumPy, Scikit-learn, TensorFlow/Keras, Matplotlib, Seaborn
+

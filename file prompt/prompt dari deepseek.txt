@@ -1,0 +1,60 @@
+Saya sedang menyusun tesis dengan judul: "ASPECT-BASED SENTIMENT ANALYSIS TERHADAP KINERJA PONPES PPM AL-IKHLASH, PONPES SYEKH HASAN YAMANI, PONPES AS-SALAFIYAH PARAPPE DI KABUPATEN POLEWALI MANDAR BERBASIS RECURRENT NEURAL NETWORK"
+
+aspek:
+Kualitas Guru, Fasilitas, Lingkungan, Kegiatan Pondok, Pembinaan Karakter, Prestasi, Akademik, Motivasi/Spiritual, Sosial, dan Umum.
+
+sentiment :
+positive, negative, netral
+huggingface aspek:
+indolem/indobert-base-uncased
+
+
+huggingface sentiment :
+taufiqdp/indonesian-sentiment
+
+jangan lupa wordcloud
+Tolong buatkan kode Python lengkap, saya menggunakan collab jadi buatkan dengan step step
+1. Arsitektur RNN (LSTM/GRU) untuk ABSA
+2. Pemrosesan data spesifik pesantren
+3. Dukungan 10 aspek + umum
+4. Integrasi model sentimen Indonesia
+
+### Spesifikasi Teknis:
+**Data Input:**
+- Format: EXCEL dengan kolom [no,nama,kalimat,ponpes]
+- Contoh data:
+  "Pelajarannya sangat mendalam", "Kualitas_Guru", "positive"
+  "Asrama perlu renovasi", "Fasilitas", "negative"
+
+**Preprocessing:**
+1. Tokenisasi bahasa Indonesia 
+2. Stemming dengan Sastrawi
+3. One-hot encoding untuk aspek
+4. Padding sequence
+
+**Arsitektur Model:**
+- Embedding Layer (dimensi 256)
+- Bidirectional LSTM (128 unit)
+- Attention Mechanism
+- Dense Layer untuk klasifikasi aspek (11 kelas)
+- Multi-task learning untuk sentimen (3 kelas)
+
+**Pelatihan:**
+- Optimizer: AdamW
+- Loss Function: 
+  - Aspek: Categorical Crossentropy
+  - Sentimen: Weighted Crossentropy
+- Metrik: F1-score per aspek
+
+**Evaluasi:**
+- Confusion matrix multi-label
+- Laporan klasifikasi per aspek
+- Visualisasi learning curve
+
+
+
+jangan lupa untuk smote agar balace
+
+RNN kemudian dismote dan RNN lgi agar dpat dilihat perbandingan
+
+tampilkan juga matrix computasion
