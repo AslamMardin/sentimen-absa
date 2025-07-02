@@ -1,0 +1,299 @@
+
+PIPELINE ASPECT-BASED SENTIMENT ANALYSIS (ABSA) UNTUK KINERJA PONDOK PESANTREN
+
+1. INPUT DATASET
+- masukan nama file berupa Excel (.xlsx) dengan manual
+- Kolom yang dibaca: "kalimat" (ulasan) dan "ponpes" (nama pondok pesantren)
+
+2. WORDCLOUD
+- Tampilkan WordCloud dari kolom "kalimat" per ponpes
+
+3. PENENTUAN ASPEK SECARA MANUAL
+- Daftar aspek:
+  - Kualitas Guru
+  - Fasilitas
+  - Lingkungan
+  - Kegiatan Pondok
+  - Pembinaan Karakter
+  - Prestasi
+  - Akademik
+  - Motivasi/Spiritual
+  - Sosial
+  - Umum
+- Kalimat dicocokkan dengan kamus kata dasar (hasil stemming)
+- Satu kalimat hanya memiliki satu aspek dominan (jika lebih dari satu, ambil satu saja)
+
+4. SENTIMEN
+- Gunakan model HuggingFace: taufiqdp/indonesian-sentiment
+- Prediksi sentimen berdasarkan kalimat
+
+5. PEMBENTUKAN DATASET BARU
+- Format output dataset:
+  - kalimat
+  - aspek
+  - sentimen
+
+6. PELATIHAN MODEL RNN
+- Split data: 80% training, 20% testing
+
+7. EVALUASI
+- Tampilkan confusion matrix
+- Classification report (precision, recall, f1-score)
+- Hitung akurasi dan f1-score rata-rata
+
+8. VISUALISASI PER ASPEK DAN PESANTREN
+- Distribusi sentimen untuk tiap aspek di masing-masing pondok pesantren
+
+CATATAN:
+- Kode disusun dalam Google Colab tanpa fungsi tambahan.
+- Setiap langkah memiliki output yang dapat dilihat langsung.
+
+
+kamus
+
+# Definisi kamus kata untuk setiap aspek
+aspek_kamus = {
+   'Kualitas Guru': [
+        # Nilai awal
+        'guru', 'pengajar', 'ustaz', 'ustadz', 'ustad', 'pengasuh', 'pembimbing',
+        'ajar', 'mengajar', 'bimbingan', 'didik', 'mendidik', 'pendidikan',
+        'kompeten', 'berkualitas', 'professional', 'ahli', 'pintar', 'cerdas',
+
+        # Tambahan berdasarkan kalimat.txt
+        'ustadzah', 'nangguru', 'pak ustadz', 'ibu ustadzah', 'bunda husniati', 'uni husni',
+        'pimpinan pondok', 'pimpinan pesantren', 'pembina', 'pemateri', 'pemimpin',
+        'murobbi', 'gurunda', 'asatidz', 'dosen', 'mentor', 'pelatih',
+        'penguji', 'pemilik ilmu', 'panutan', 'teladan', 'pendamping',
+        'pengasuhan', 'pengabdian', 'pengaruh', 'motivator', 'penasehat',
+        'pemberi ilmu', 'penyampai ilmu', 'penceramah', 'penyuluh', 'penggerak',
+        'pengembang', 'pembangun karakter', 'pengarah', 'penguat', 'pemantau',
+        'pembimbing spiritual', 'pengajar tahfiz', 'pengajar tahsin', 'peneguh akhlak',
+        'ustadz pembina', 'guru favorit', 'guru terbaik', 'pengasuh terbaik',
+        'ilmu dari ustadz', 'jasa guru', 'amal jariyah', 'pencerah', 'penuntun',
+        'pembentuk karakter', 'guru inspiratif', 'pengajar andalan', 'tokoh pendidikan',
+        'ustadz pengajar', 'ustadz yang bijak', 'ustadz yang sabar', 'ustadz yang tawadhu',
+        'ustadz yang tegas', 'ustadz yang ramah', 'ustadz yang penyayang', 'ustadz yang adil',
+        'pengajar berkualitas', 'guru pembina', 'guru motivator', 'guru penuh cinta',
+        'ustadz profesional', 'guru santun', 'guru religius', 'guru berkharisma',
+        'pendidik sejati', 'guru sabar', 'guru berilmu', 'guru berdedikasi', 'guru teladan',
+        'pemimpin berkharisma', 'guru pembentuk karakter', 'guru panutan', 'guru kreatif',
+        'guru bijak', 'guru penyabar', 'guru istiqamah', 'guru penuh kasih', 'guru disiplin'
+    ],
+    'Fasilitas': [
+    # Asal
+    'fasilitas', 'gedung', 'ruang', 'kelas', 'asrama', 'masjid', 'mushola',
+    'perpustakaan', 'laboratorium', 'kantin', 'toilet', 'kamar', 'tempat',
+    'sarana', 'prasarana', 'peralatan', 'perlengkapan', 'infrastruktur',
+
+    # Ekspansi dari teks kalimat.txt
+    'panggung', 'lapangan', 'barisan', 'parkiran', 'kursi', 'meja',
+    'sound system', 'tempat wudhu', 'tangga', 'teras', 'kamar mandi',
+    'area', 'halaman', 'blok', 'atap', 'dinding', 'depan kamera',
+    'auditorium', 'panggung gembira', 'spot', 'panggung apresiasi',
+    'kelas A', 'kelas B', 'kelas C', 'peralatan olahraga', 'barak',
+    'seragam pondok', 'peralatan lomba', 'sarana olahraga', 'arena',
+    'lokasi kegiatan', 'tempat latihan', 'ruang ujian', 'tenda',
+    'ruang tahfidz', 'ruang belajar', 'ruang makan', 'dapur santri',
+    'tempat ibadah', 'lokasi parkir', 'kamar santri', 'tempat tidur',
+    'lemari', 'jemuran', 'penataan tempat', 'area upacara', 'papan tulis',
+    'infokus', 'proyektor', 'papan nama kelas', 'karpet', 'rak sepatu',
+    'loker', 'akses jalan', 'akses air', 'tempat istirahat', 'tempat duduk',
+    'lokasi foto', 'view udara', 'arsitektur pondok', 'bangunan pondok',
+    'layout pondok', 'ruang OSPI', 'panggung OSPI', 'pos keamanan',
+    'ruang administrasi', 'pos penjagaan', 'alat kebersihan', 'alat tulis',
+    'alat mandi', 'peralatan ibadah', 'peralatan masak', 'kebutuhan santri',
+    'ruang wali santri', 'gedung pertemuan', 'gedung kelas baru',
+    'area santri putri', 'area santri putra', 'arena pencak silat',
+    'studio rekaman', 'studio podcast', 'kios kantin', 'kasur', 'bantal'
+],
+    'Lingkungan': [
+    # Asal
+    'lingkungan', 'sekitar', 'daerah', 'lokasi', 'tempat', 'suasana',
+    'atmosfer', 'kondisi', 'situasi', 'tenang', 'nyaman', 'sejuk',
+    'bersih', 'kotor', 'sehat', 'aman', 'strategis',
+
+    # Tambahan dari teks & konteks pesantren
+    'asri', 'damai', 'hijau', 'rapi', 'tertib', 'khidmat', 'semarak',
+    'penuh semangat', 'cerah', 'cuaca cerah', 'lingkungan pondok',
+    'lingkungan pesantren', 'suasana pondok', 'suasana kelas',
+    'suasana asrama', 'suasana upacara', 'view udara', 'pemandangan',
+    'udara segar', 'udara sejuk', 'tempat tenang', 'suasana religius',
+    'suasana Islami', 'suasana kekeluargaan', 'suasana meriah',
+    'suasana bersahabat', 'suasana gembira', 'suasana ceria',
+    'suasana belajar', 'suasana spiritual', 'suasana pagi', 'suasana sore',
+    'suasana ramadhan', 'suasana pesantren', 'suasana libur', 'suasana hujan',
+    'kawasan pondok', 'area pondok', 'kompleks pesantren', 'lingkungan bersih',
+    'lingkungan sehat', 'lingkungan nyaman', 'lingkungan Islami',
+    'suasana aman', 'rindang', 'berkawah', 'panas', 'dingin',
+    'tenang dan damai', 'ramah', 'guyub', 'akrab', 'penuh kekeluargaan',
+    'rasa tenteram', 'kehidupan pondok', 'hari-hari di pondok', 'kesan pondok',
+    'penghuni pondok', 'suasana lomba', 'suasana tahfiz', 'keramaian',
+    'kerapihan', 'suasana kegiatan', 'suasana belajar mengajar'
+],
+   'Kegiatan Pondok': [
+    # Nilai awal
+    'kegiatan', 'program', 'acara', 'event', 'agenda', 'jadwal',
+    'ekstrakurikuler', 'ekskul', 'organisasi', 'osis', 'rohis',
+    'pengajian', 'kajian', 'ceramah', 'kultum', 'sholat', 'tahfidz', 'ospi',
+
+    # Tambahan dari teks dan konteks pondok
+    'tahsin', 'tasmi', 'tahfizhul', 'hafalan', 'daurah', 'apel', 'upacara',
+    'muhadarah', 'ujian', 'tulis', 'lisan', 'tahriri', 'haflah',
+    'panggung gembira', 'one night with alumni', 'hari santri', 'maulid',
+    'peringatan isra', 'peringatan maulid', 'mabit', 'outing class',
+    'ziarah', 'mukhayyam', 'munaqosah', 'musabaqah', 'khataman',
+    'madrasah fest', 'mahakarya', 'opening ceremony', 'closing ceremony',
+    'seminar', 'workshop', 'pentas seni', 'pentas budaya', 'lomba antar kamar',
+    'pelatihan', 'diskusi', 'presentasi', 'praktikum', 'kegiatan qurban',
+    'sholat berjamaah', 'amalan pondok', 'sholat dhuha', 'sholat malam',
+    'tadarus', 'dzikir bersama', 'doa bersama', 'muhasabah', 'rapat',
+    'sidang kelas', 'kegiatan malam', 'kegiatan subuh', 'kegiatan pagi',
+    'kegiatan sore', 'pengarahan', 'arahan', 'briefing', 'pelantikan',
+    'pengukuhan', 'OSPI', 'pembukaan', 'penutupan', 'pawai', 'karnaval',
+    'kontes', 'kompetisi', 'simulasi', 'try out', 'haflah akhirussanah',
+    'malam bina iman dan taqwa', 'praktik ibadah', 'kegiatan istighosah',
+    'kegiatan salat jumat', 'pembacaan yasin', 'praktik khutbah',
+    'kegiatan sosial', 'kegiatan bakti', 'hari besar Islam',
+    'kegiatan bersama wali santri', 'kunjungan wali santri',
+    'rekaman', 'syuting', 'gladi', 'kegiatan lomba', 'kegiatan motivasi',
+    'motivasi pagi', 'sharing session', 'kunjungan alumni', 'ujian praktik',
+    'penampilan santri', 'latihan pencak silat', 'peragaan'
+],
+
+   'Pembinaan Karakter': [
+    # Nilai awal
+    'karakter', 'akhlak', 'moral', 'etika', 'sopan', 'santun', 'adab',
+    'disiplin', 'tertib', 'patuh', 'taat', 'hormat', 'menghormati',
+    'pembinaan', 'pembentukan', 'mendidik', 'membangun', 'mengembangkan',
+
+    # Tambahan dari kalimat.txt dan konteks pondok
+    'pembiasaan', 'kesopanan', 'kerapian', 'kerendahan hati', 'tawadhu',
+    'kesabaran', 'keteguhan', 'tanggung jawab', 'keteladanan', 'kemandirian',
+    'ketaatan', 'keikhlasan', 'kepatuhan', 'kejujuran', 'komitmen',
+    'penguatan karakter', 'perilaku', 'ahlakul karimah', 'teladan',
+    'sikap', 'pengendalian diri', 'kesungguhan', 'niat baik', 'taat aturan',
+    'kedisiplinan', 'pengarahan', 'penguatan nilai', 'kebiasaan baik',
+    'pengawasan', 'pembimbingan', 'pengasuhan karakter', 'pembentukan akhlak',
+    'pendidikan karakter', 'sikap hormat', 'kebijaksanaan', 'kekonsistenan',
+    'motivasi diri', 'pantang menyerah', 'kerja keras', 'beradab', 'beretika',
+    'tanggung jawab pribadi', 'penghormatan', 'ketaatan santri', 'kesalehan',
+    'nasihat akhlak', 'pembentukan kepribadian', 'jiwa kepemimpinan',
+    'nilai-nilai islami', 'akhlak mulia', 'taat guru', 'berahlak',
+    'pengingat adab', 'jiwa disiplin', 'sikap spiritual', 'nilai kepribadian',
+    'sikap positif', 'jiwa mandiri', 'mental tangguh', 'respek', 'sikap sopan'
+],
+    'Prestasi': [
+    # Nilai awal
+    'prestasi', 'juara', 'menang', 'pemenang', 'lomba', 'kompetisi',
+    'kejuaraan', 'olimpiade', 'festival', 'penghargaan', 'award',
+    'berprestasi', 'unggul', 'terbaik', 'hebat', 'luar biasa',
+
+    # Tambahan dari kalimat.txt dan konteks pondok
+    'peringkat', 'ranking', 'piala', 'medali', 'trophy', 'sertifikat',
+    'duta', 'delegasi', 'finalis', 'grand final', 'tampil terbaik',
+    'sukses tampil', 'kemenangan', 'gelar', 'title', 'penampilan terbaik',
+    'hasil gemilang', 'hasil membanggakan', 'santri berprestasi',
+    'prestasi nasional', 'prestasi internasional', 'tampil luar biasa',
+    'penghargaan khusus', 'prestasi akademik', 'prestasi non-akademik',
+    'santri inspiratif', 'hafiz terbaik', 'tahfidz terbaik',
+    'qori terbaik', 'tilawah terbaik', 'madrasah fest', 'juara umum',
+    'juara 1', 'juara 2', 'juara 3', 'peraih medali emas',
+    'peraih medali perak', 'peraih medali perunggu',
+    'juara favorit', 'unggulan', 'terpilih', 'hasil maksimal',
+    'prestasi membanggakan', 'santri andalan', 'santri juara',
+    'juara lomba tilawah', 'juara pidato', 'juara bahasa arab',
+    'performa terbaik', 'membawa pulang piala', 'mengharumkan nama pondok',
+    'prestasi membanggakan pesantren', 'pencapaian luar biasa',
+    'pencapaian gemilang', 'santri hebat', 'tim berprestasi',
+    'peringkat nasional', 'peringkat provinsi', 'peringkat kabupaten',
+    'kompetitor unggul', 'gelar juara', 'berhasil meraih juara'
+],
+    'Akademik': [
+    # Nilai awal
+    'akademik', 'pelajaran', 'mata pelajaran', 'mapel', 'kurikulum',
+    'belajar', 'pembelajaran', 'pendidikan', 'sekolah', 'kelas',
+    'ujian', 'ulangan', 'tes', 'nilai', 'rapor', 'lulusan', 'alumni',
+
+    # Tambahan dari kalimat.txt dan konteks pesantren
+    'belajar kelompok', 'pembahasan soal', 'pemahaman materi',
+    'penguasaan materi', 'tugas', 'PR', 'remedial', 'bimbingan belajar',
+    'buku pelajaran', 'kitab', 'pelajaran kitab', 'bahasa arab',
+    'bahasa inggris', 'nahwu', 'shorof', 'fiqih', 'tauhid', 'hadis', 'tajwid',
+    'tahsin', 'tahfizhul', 'muhadarah', 'syarah', 'lughah', 'ilmu alat',
+    'kelas A', 'kelas B', 'kelas C', 'pembelajaran aktif', 'kelas interaktif',
+    'kelas unggulan', 'kelas khusus', 'kelas regular', 'evaluasi', 'koreksi',
+    'pembagian rapor', 'peringkat kelas', 'soal', 'penguji', 'pengajar',
+    'ruang ujian', 'jadwal ujian', 'pengawas ujian', 'hasil ujian',
+    'ujian tulis', 'ujian lisan', 'tahriri', 'tahriri lisan', 'penilaian',
+    'ujian akhir semester', 'ujian tengah semester', 'PAS', 'PAT',
+    'rapat guru', 'rapat akademik', 'rapat nilai', 'ujian praktik',
+    'try out', 'ujian kelulusan', 'pengumuman kelulusan', 'angkatan',
+    'angkatan alumni', 'program akademik', 'hari belajar', 'hari ujian',
+    'bel masuk', 'jam pelajaran', 'absensi', 'daftar hadir', 'pengembangan akademik',
+    'pengayaan materi', 'prestasi akademik', 'kelas online', 'kelas tatap muka',
+    'kelas hybrid', 'ujian masuk', 'tes masuk', 'jadwal pelajaran',
+    'proses belajar mengajar', 'target hafalan', 'rencana belajar',
+    'catatan guru', 'catatan pelajaran', 'santri belajar', 'santri akademik',
+    'santri unggulan', 'kelas tahfidz', 'kelas umum', 'kelas internasional'
+],
+   'Motivasi/Spiritual': [
+    # Nilai awal
+    'motivasi', 'semangat', 'inspirasi', 'dorongan', 'dukungan',
+    'spiritual', 'rohani', 'iman', 'taqwa', 'ibadah', 'doa',
+    'dzikir', 'muhasabah', 'taubat', 'istighfar', 'syukur',
+
+    # Tambahan dari kalimat.txt dan konteks pesantren
+    'berkah', 'aamiin', 'nasihat', 'murobbi', 'muhasabah diri',
+    'pengingat', 'tausiyah', 'mauizah', 'tawakal', 'sabar', 'ikhlas',
+    'penguatan iman', 'kekuatan batin', 'hati tenang', 'hati lapang',
+    'hati yang bersih', 'penghibur jiwa', 'doa restu', 'doa orang tua',
+    'doa ustadz', 'nasihat ustadz', 'nasihat guru', 'hikmah',
+    'mendekatkan diri', 'nilai ruhani', 'ruhiyah', 'siraman rohani',
+    'ceramah agama', 'motivator', 'doa bersama', 'renungan', 'kekuatan doa',
+    'semangat santri', 'mental kuat', 'istiqamah', 'niat lillahi taala',
+    'ikhtiar', 'tawadhu', 'pengorbanan', 'sujud', 'shalat malam',
+    'shalat dhuha', 'istighotsah', 'asmaul husna', 'sholawat',
+    'berjuang di jalan Allah', 'sabar dalam ujian', 'kekuatan spiritual',
+    'mimpi besar', 'harapan tinggi', 'mimpi menjadi ulama',
+    'taqarrub', 'syahdu', 'berzikir', 'ruang spiritual', 'jiwa semangat',
+    'jiwa penuh syukur', 'jiwa religius', 'jiwa optimis', 'jiwa istiqamah',
+    'nasihat ruhani', 'jiwa santri', 'jiwa pondok', 'jiwa tangguh',
+    'penyemangat', 'penggugah hati', 'pembentuk jiwa', 'ruh perjuangan',
+    'cita-cita tinggi', 'kekuatan doa', 'jiwa dakwah', 'hidayah', 'rahmat',
+    'karunia Allah', 'doa harian', 'doa ujian', 'doa perjalanan', 'pengharapan'
+],
+   'Sosial': [
+        # Nilai awal
+        'sosial', 'masyarakat', 'komunitas', 'teman', 'persahabatan',
+        'kebersamaan', 'kekeluargaan', 'gotong royong', 'tolong', 'menolong',
+        'solidaritas', 'peduli', 'empati', 'simpati', 'dermawan',
+        'bantu', 'membantu', 'bantuan', 'relawan', 'donasi', 'musibah',
+        'infak', 'sedekah', 'amal', 'korban', 'kebakaran', 'kemanusiaan',
+        'aksi', 'kepedulian', 'charity', 'filantropi', 'penyaluran', 'kemasyarakatan',
+
+        # Tambahan kontekstual dari kalimat.txt
+        'kunjungan', 'silaturahmi', 'rukun', 'keluarga', 'alumni', 'kerja sama',
+        'ziarah', 'berbagi', 'saling', 'temannya', 'rindu', 'salaman', 'ucapan terima kasih',
+        'kelompok', 'barisan', 'komando', 'kebanggaan', 'pemberian hadiah', 'kontribusi',
+        'dukungan', 'penghargaan', 'pengurus', 'pengabdian', 'pengasuhan', 'sapa', 'temani',
+        'ramai', 'kerabat', 'keterlibatan', 'semangat bersama', 'partisipasi', 'ikatan',
+        'kekerabatan', 'berkumpul', 'bertemu', 'hadir', 'kompak', 'guyub', 'ramah tamah',
+        'perhatian', 'emosional', 'sapa menyapa', 'video call', 'cerita bersama',
+        'pertemuan', 'kebersamaan', 'sahabat', 'teman dekat', 'komunitas santri', 'lingkungan sosial',
+        'dampingan', 'penguat', 'motivator', 'penghibur', 'bantu teman', 'pegang tangan',
+        'kelompok belajar', 'tim kerja', 'kerja kelompok', 'bareng-bareng', 'berkoordinasi',
+        'kumpul keluarga', 'lepas rindu', 'pelukan', 'sapaan', 'keramaian', 'bercanda', 'berteman',
+        'menemani', 'memeluk', 'berdiskusi', 'berinteraksi', 'berkegiatan', 'berjuang bersama',
+        'semangat tim', 'bareng ustadz', 'bareng ustadzah', 'dari keluarga', 'teman seperjuangan',
+        'dari rumah', 'pesan dari rumah', 'sapaan dari rumah', 'orang rumah', 'support system',
+        'menyemangati', 'bertemu santri', 'santri baru', 'teman satu asrama', 'sahabat dekat',
+        'satu kamar', 'teman seangkatan', 'pengunjung', 'pesan moral', 'dukungan sosial',
+        'peran serta', 'sumbangan', 'doa bersama', 'penguatan sosial', 'semangat bersama'
+    ],
+    'Umum': [
+        'bagus', 'baik', 'jelek', 'buruk', 'recommended', 'rekomen',
+        'puas', 'senang', 'suka', 'kecewa', 'sedih', 'marah',
+        'overall', 'keseluruhan', 'secara umum', 'umumnya'
+    ]
+}
+
