@@ -45,7 +45,7 @@ PIPELINE ASPECT-BASED SENTIMENT ANALYSIS (ABSA) UNTUK KINERJA PONDOK PESANTREN
 - Distribusi sentimen untuk tiap aspek di masing-masing pondok pesantren
 
 CATATAN:
-- Kode disusun dalam Google Colab tanpa fungsi tambahan.
+- Kode disusun dalam Google Colab
 - Setiap langkah memiliki output yang dapat dilihat langsung.
 
 
